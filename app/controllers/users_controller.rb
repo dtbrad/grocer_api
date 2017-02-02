@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       jwt = Auth.encode({user: user.id})
       render json: {jwt: jwt}
     else
-      render json: { errors: user.errors.full_messages }, status: 500
+      render json: { errors: user.errors.full_messages }
     end
   end
 
