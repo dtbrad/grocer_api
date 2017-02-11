@@ -22,6 +22,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt', '~> 1.5.6'
 
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+gem 'active_model_serializers'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
