@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       jwt = Auth.encode({user: user.id})
-      render json: {jwt: jwt}
+      render json: {jwt: jwt, message: ["Registration successful!"]}
     else
-      render json: { errors: user.errors.full_messages }
+      render json: { message: user.errors.full_messages }
     end
   end
 
