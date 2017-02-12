@@ -1,5 +1,6 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :name, :total_purchased, :highest_price
+  attributes :id, :name, :total_purchased, :highest_price, :lowest_price, :most_recently_purchased
+  has_many :line_items
 
   def total_purchased
     @scope.line_items.where(product: object).sum(:quantity)
@@ -9,10 +10,11 @@ class ProductSerializer < ActiveModel::Serializer
     @scope.line_items.where(product: object).order(price_cents: :desc).first.price_cents
   end
 
+  def lowest_price
+    @scope.line_items.where(product: object).order(:price_cents).first.price_cents
+  end
+
+  def most_recently_purchased
+    object.baskets.where(user: @scope).order('baskets.date_time').last.date_time
+  end
 end
-
-
-
-# def times_bought
-#   line_items.where(product: self).sum(:quantity)
-# end

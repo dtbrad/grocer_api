@@ -1,9 +1,7 @@
 class LineItemSerializer < ActiveModel::Serializer
-  attributes :id, :basket_id
+  attributes :id, :basket_date, :price_cents, :quantity, :weight, :total_cents
 
-  # def basket_date
-  #   binding.pry
-  #   object.basket_date
-  # end
-  # ha_many :line_items
+  def basket_date
+    object.basket.date_time
+  end
 end
