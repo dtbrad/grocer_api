@@ -3,9 +3,9 @@ class Auth
   ALGORITHM = 'HS256'
 
   def self.encode(payload)
-    expiration = 30.minutes.from_now.to_i
+    # expiration = 30.minutes.from_now.to_i
     JWT.encode(
-      payload.merge(exp: expiration),
+      payload.merge(exp: 30.minutes.from_now.to_i),
       auth_secret,
       ALGORITHM)
   end

@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::API
-  serialization_scope nil
+  # serialization_scope @current_user
 
 end
