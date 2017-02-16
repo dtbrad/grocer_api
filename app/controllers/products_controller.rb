@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
 
   def index
     products = @current_user.products.filtered_products.distinct
-    render json: products
+    response.headers["item_count"] = products.count
+    paginate json: products
   end
 
   def show

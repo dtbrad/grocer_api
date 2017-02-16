@@ -23,6 +23,8 @@ gem 'jwt', '~> 1.5.6'
 
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'active_model_serializers'
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
+gem 'api-pagination'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

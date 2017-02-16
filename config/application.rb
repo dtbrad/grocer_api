@@ -31,7 +31,7 @@ module GrocerApi
     config.middleware.insert_before 0, Rack::Cors do
      allow do
        origins '*'
-       resource '*', :expose => ['jwt'], :headers => :any, :methods => [:get, :post, :options]
+       resource '*', :expose => ['jwt', 'item_count'], :headers => :any, :methods => [:get, :post, :options]
      end
    end
 
